@@ -6,7 +6,7 @@ node {
 
     stage "Trigger the maven profile"
     withMaven {
-        sh 'mvn clean verify'
+        bat 'mvn clean veriry'
     }
 
     // Archive the build output artifacts.
