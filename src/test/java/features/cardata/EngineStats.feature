@@ -1,5 +1,6 @@
 @parallel=false
 @cardata
+@regression
 Feature: Validate the Engine Stats api
 
   Background:
@@ -8,6 +9,7 @@ Feature: Validate the Engine Stats api
     * def engineStatusPayload = {'carId': 'jlr0001','engineFuelLevel': '65.4', 'engineHeatLevel': '73.2', 'engineOilLevel': '82.5','engineBatteryLevel': '75.7', 'time':'13.45'}
     * def engineStatusInfo = {}
 
+  @smoke
   Scenario: Add a valid engine status
     Given path 'engine/status'
     When request engineStatusPayload

@@ -1,10 +1,18 @@
 @parallel=false
 @cardisplay
+@regression
 Feature: Validate the Car display features
 
   Background:
     * def port = karate.start('classpath:mock/DisplayMock.feature').port
     * url url + port + '/car'
+
+  @smoke
+  Scenario: Validate engine status for display
+    Given path 'display/engine', 'jlr001'
+    And method get
+    Then status 200
+    And match response.message == 'Engine condition is good. Happy riding!!'
 
   Scenario Outline: Validate engine status for display
     Given path 'display/engine', '<carId>'

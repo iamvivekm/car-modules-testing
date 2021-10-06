@@ -14,11 +14,11 @@ import net.masterthought.cucumber.ReportBuilder;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestRunner {
+public class CarDataTestRunner {
 
     @Test
     void testParallel() {
-        Results results = Runner.path("classpath:features")
+        Results results = Runner.path("classpath:features/cardata")
                 .tags("~@skipme")
                 .outputCucumberJson(true)
                 .parallel(5);

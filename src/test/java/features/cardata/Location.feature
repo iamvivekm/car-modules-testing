@@ -1,5 +1,6 @@
 @parallel=false
-@car-side
+@cardata
+@regression
 Feature: Validate the Location api
 
   Background:
@@ -8,6 +9,7 @@ Feature: Validate the Location api
     * def locationPayload = {'carId': 'jlr0001', 'source': 'Bradford', 'destination': 'Leeds', 'currentLocation': 'Shipley', 'time':'12.30'}
     * def locationInfo = {}
 
+  @smoke
   Scenario: Add a valid car location
     Given path 'location'
     When request locationPayload
