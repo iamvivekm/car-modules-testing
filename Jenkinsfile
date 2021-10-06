@@ -6,9 +6,11 @@ node {
 
     stage "Trigger the maven profile"
     withMaven {
-        bat 'mvn clean veriry'
+        bat 'mvn clean verify'
     }
-
-    // Archive the build output artifacts.
-    archiveArtifacts artifacts: 'target/cucumber-html-reports', excludes: 'output/*.md'
+}
+post {
+  always {
+    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/cucumber-html-reports', reportFiles: 'overview-features.html', reportName: 'Smoke Test Report', reportTitles: ''])
+  }
 }
