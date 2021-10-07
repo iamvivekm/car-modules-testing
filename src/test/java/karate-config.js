@@ -7,10 +7,8 @@ function fn() {
   var config = {
     url: 'http://localhost:'
   }
-  if (env == 'dev') {
-       //todo
-  } else if (env == 'e2e') {
-    //todo
+  if (env == 'perf') {
+    config.url = 'http://localhost:8095/car'
   }
   return config;
 }

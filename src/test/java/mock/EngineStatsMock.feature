@@ -36,6 +36,19 @@ Feature: Engine Stats mock server
     * def responseHeaders = { 'Content-Type': 'application/json' }
     * def response = {message: 'Invalid time received'}
 
+  Scenario: pathMatches('/car/engine/status') && methodIs('post') && request.carId == 'jlr0002'
+    * def responseDelay = 10000
+    * def engineStatus = {carId': '','engineFuelLevel': '', 'engineHeatLevel': '', 'engineOilLevel': '','engineBatteryLevel': '', 'time':''}
+    * def id = uuid()
+    * engineStatus.id = id
+    * engineStatus.source = request.source
+    * engineStatus.destination = request.destination
+    * engineStatus.currentLocation = request.currentLocation
+    * engineStatus.time = request.time
+    * engineStatuses[id] = engineStatus
+    * def responseStatus = 201
+    * def response = engineStatus
+
   Scenario: pathMatches('/car/engine/status') && methodIs('post')
     * def engineStatus = {carId': '','engineFuelLevel': '', 'engineHeatLevel': '', 'engineOilLevel': '','engineBatteryLevel': '', 'time':''}
     * def id = uuid()

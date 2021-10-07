@@ -32,6 +32,14 @@ Feature: Validate the Engine Stats api
     And method get
     Then match response == $engineStatusInfo.*
 
+#Response will be delayed by 10 seconds
+  Scenario: Valid a delayed engine status response
+    Given path 'engine/status'
+    * set engineStatusPayload.carId = 'jlr0002'
+    When request engineStatusPayload
+    And method post
+    Then status 201
+
   Scenario Outline: Add an Invalid car <fieldName> with null value
     Given path 'engine/status'
     When set engineStatusPayload.<fieldName> = null
