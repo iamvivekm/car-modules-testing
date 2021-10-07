@@ -85,7 +85,7 @@
             </build>
         </profile>
         <profile>
-            <id>CarDisplayProfile</id>
+            <id>CarInfotainmentProfile</id>
             <build>
                 <plugins>
                     <plugin>
