@@ -14,7 +14,7 @@ Feature: Validate the Car display features
     Then status 200
     And match response.message == 'Engine condition is good. Happy riding!!'
 
-  Scenario Outline: Validate engine status for display
+  Scenario Outline: Validate alerts/notication based on engine status
     Given path 'display/engine', '<carId>'
     And method get
     Then status 200
@@ -31,6 +31,14 @@ Feature: Validate the Car display features
       | jlr008 | 'Alert! Car battery level is very low.'                                            |
       | jlr009 | 'Warning! Engine oil level is low.'                                                |
       | jlr010 | 'Alert! Engine oil level is very low. Please refill'                               |
-      | jlr011 | 'Info! you have reached Leeds, traffic is normal'                                  |
-      | jlr012 | 'Info! you have reached Manchester, nearing your destination'                      |
-      | jlr013 | 'Info! you have reached Preston, this is your destination'                         |
+
+  Scenario Outline: Validate location alerts/notifications
+    Given path 'display/location', '<carId>'
+    And method get
+    Then status 200
+    And match response.message == <message>
+    Examples:
+      | carId  | message                                                       |
+      | jlr011 | 'Info! you have reached Leeds, traffic is normal'             |
+      | jlr012 | 'Info! you have reached Manchester, nearing your destination' |
+      | jlr013 | 'Info! you have reached Preston, this is your destination'    |

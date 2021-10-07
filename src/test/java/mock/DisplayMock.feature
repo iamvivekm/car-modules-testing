@@ -24,6 +24,13 @@ Feature: Location Mock server
     * def responseStatus = 200
     * def response = {message: #(responseMessage)}
 
+  Scenario: pathMatches('/car/display/location/{id}') && methodIs('get')
+    * def id = pathParams.id
+    * def responseMessage = (id == 'jlr011') ? 'Info! you have reached Leeds, traffic is normal' : ''
+    * def responseMessage = (id == 'jlr012') ? 'Info! you have reached Manchester, nearing your destination' : responseMessage
+    * def responseMessage = (id == 'jlr013') ? 'Info! you have reached Preston, this is your destination' : responseMessage
+    * def responseStatus = 200
+    * def response = {message: #(responseMessage)}
 
   Scenario:
     * def responseStatus = 404
