@@ -71,7 +71,7 @@
                         <version>${maven.surefire.version}</version>
                         <configuration>
                             <excludes>
-                                <exclude>runner/CarDisplayTestRunner.java</exclude>
+                                <exclude>runner/CarInfotainmentTestRunner.java</exclude>
                             </excludes>
                             <includes>
                                 <include>runner/CarDataTestRunner.java</include>
@@ -97,7 +97,7 @@
                                 <exclude>runner/CarDataTestRunner.java</exclude>
                             </excludes>
                             <includes>
-                                <include>runner/CarDisplayTestRunner.java</include>
+                                <include>runner/CarInfotainmentTestRunner.java</include>
                             </includes>
                             <systemProperties>
                                 <karate.options>--tags ~@skipme</karate.options>

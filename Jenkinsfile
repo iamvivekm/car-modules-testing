@@ -10,7 +10,7 @@ pipeline {
         stage("Trigger the maven profile") {
             steps {
                 withMaven {
-                        bat 'mvn clean verify'
+                        bat 'mvn "-Dkarate.options=--tags @{tagName}" clean verify -P{profile}'
                 }
             }
         }
