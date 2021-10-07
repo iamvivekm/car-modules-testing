@@ -17,7 +17,7 @@ pipeline {
     }
     post {
         always {
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/cucumber-html-reports', reportFiles: 'overview-features.html', reportName: 'Smoke Test Report', reportTitles: ''])
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'target/cucumber-html-reports', reportFiles: 'overview-features.html', reportName: 'Smoke Test Report', reportTitles: ''])
         }
     }
 }
